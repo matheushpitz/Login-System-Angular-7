@@ -11,6 +11,11 @@ const routes: Routes = [
         component: DefaultComponent,
         children: [
             {
+                path: '',
+                redirectTo: 'add',
+                pathMatch: 'full'
+            },
+            {
                 path: 'add',
                 component: UserAdd
             },

@@ -25,6 +25,7 @@ export class LoginComponent {
   }
 
   logIn(data) {    
+    this.store.dispatch(new Login(new UserAuthentication('admin', '1234')));
     // data.valid -> to validations.
     this.subs.push(this.service.authenticate(new UserAuthentication(data.value.username, data.value.password)).subscribe(res => {
       if(res.token != null && res.token.length > 0) {

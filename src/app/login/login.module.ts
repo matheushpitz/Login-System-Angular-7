@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { LoginService } from './login.service';
-import { LoginFacade } from './login.facade';
+import { LoginFacade } from './state/login.facade';
 
 @NgModule({
     declarations: [],

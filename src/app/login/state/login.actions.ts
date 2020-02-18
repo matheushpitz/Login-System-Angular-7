@@ -1,10 +1,11 @@
 import { Action } from '@ngrx/store';
-import { UserAuthentication, AuthenticationToken } from './login.model';
+import { UserAuthentication, AuthenticationToken } from '../login.model';
 
 
 export enum ActionTypes {
     Login = '[Login] Login',
     LoginError = '[Login] LoginError',
+    InvalidLogin = '[Login] InvalidLogin',
     SuccessfullyLogged = '[Login] SuccessfullyLogged',
     Logout = '[Login] Logout'
 }
@@ -24,9 +25,14 @@ export class SuccessfullyLogged implements Action {
     constructor(public payload: AuthenticationToken) {}
 }
 
+export class InvalidLogin implements Action {
+    readonly type = ActionTypes.InvalidLogin;
+    constructor(){}
+}
+
 export class Logout implements Action {
     readonly type = ActionTypes.Logout;
     constructor() {}
 }
 
-export type LoginActions = Login | LoginError | SuccessfullyLogged | Logout;
+export type LoginActions = Login | LoginError | SuccessfullyLogged | Logout | InvalidLogin;

@@ -10,10 +10,10 @@ import { LoginServiceModule } from './login/login.module';
 import { HttpAPIModule } from './http/http.module';
 
 import { StoreModule } from '@ngrx/store';
-import { LoginReducer } from './login/login.reducer';
+import { LoginReducer } from './login/state/login.reducer';
 
 import { EffectsModule } from '@ngrx/effects';
-import { LoginEffects } from './login/login.effect';
+import { LoginEffects } from './login/state/login.effect';
 
 @NgModule({
   declarations: [

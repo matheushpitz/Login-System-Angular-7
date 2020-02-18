@@ -1,21 +1,18 @@
 import { Injectable } from '@angular/core';
-import { UserAuthentication, AuthenticationToken } from './login.model';
-import { Observable, of } from 'rxjs';
+import { UserAuthentication, AuthenticationToken, AuthenticateResponse } from './login.model';
+import { Observable } from 'rxjs';
+import { HttpAPI } from '../http/http.service';
+import { map } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
 })
 export class LoginService {
     
-    constructor() {
-
-    }
+    constructor(private http: HttpAPI) {}
 
     authenticate(user: UserAuthentication): Observable<AuthenticationToken> {
-        if(user.username === 'admin' && user.password === 'admin')
-            return of(new AuthenticationToken('123456'));
-        else
-            return of(new AuthenticationToken(null));
+        return this.http.post<AuthenticateResponse>('/Login/Authenticate', user).pipe(map(res => res.data));
     }
 
 }

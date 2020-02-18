@@ -16,13 +16,22 @@ export const LoginReducer = (state = initialState, action: LoginActions) => {
                 ...state,
                 logging: false
             };
-        case ActionTypes.SuccessfullyLogged:
+        case ActionTypes.InvalidLogin:
             return {
                 ...state,
                 logging: false
             };
+        case ActionTypes.SuccessfullyLogged:
+            return {
+                ...state,
+                logging: false,
+                token: action.payload.token
+            };
         case ActionTypes.Logout:
-            return state;
+            return {
+                ...state,
+                token: undefined
+            };
         default:
             return state;
     }

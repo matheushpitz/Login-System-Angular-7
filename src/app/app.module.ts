@@ -14,6 +14,7 @@ import { LoginReducer } from './login/state/login.reducer';
 
 import { EffectsModule } from '@ngrx/effects';
 import { LoginEffects } from './login/state/login.effect';
+import { InterceptorsModule } from './interceptors/interceptors.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { LoginEffects } from './login/state/login.effect';
     }),
     EffectsModule.forRoot([LoginEffects]),
     HttpAPIModule,
+    InterceptorsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,7 +12,11 @@ export class LoginService {
     constructor(private http: HttpAPI) {}
 
     authenticate(user: UserAuthentication): Observable<AuthenticationToken> {
-        return this.http.post<AuthenticateResponse>('/Login/Authenticate', user).pipe(map(res => res.data));
+        return this.http.post<AuthenticateResponse>('/Login/Authenticate', user, false, false).pipe(map(res => res.data));
+    }
+
+    refresh(): Observable<AuthenticationToken> {
+        return this.http.post<AuthenticateResponse>('/Login/Reauthenticate', null, true, false).pipe(map(res => res.data));
     }
 
 }

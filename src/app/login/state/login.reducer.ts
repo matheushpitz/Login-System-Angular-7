@@ -6,7 +6,7 @@ const initialState = {
 
 export const LoginReducer = (state = initialState, action: LoginActions) => {
     switch(action.type) {
-        case ActionTypes.Login:
+        case ActionTypes.Login:            
             return {
                 ...state,
                 logging: true
@@ -32,6 +32,8 @@ export const LoginReducer = (state = initialState, action: LoginActions) => {
                 ...state,
                 token: undefined
             };
+        case ActionTypes.Refresh:
+            return state;
         default:
             return state;
     }

@@ -7,7 +7,8 @@ export enum ActionTypes {
     LoginError = '[Login] LoginError',
     InvalidLogin = '[Login] InvalidLogin',
     SuccessfullyLogged = '[Login] SuccessfullyLogged',
-    Logout = '[Login] Logout'
+    Logout = '[Login] Logout',
+    Refresh = '[Login] Refresh',
 }
 
 export class Login implements Action {
@@ -35,4 +36,9 @@ export class Logout implements Action {
     constructor() {}
 }
 
-export type LoginActions = Login | LoginError | SuccessfullyLogged | Logout | InvalidLogin;
+export class Refresh implements Action {
+    readonly type = ActionTypes.Refresh;
+    constructor() {}
+}
+
+export type LoginActions = Login | LoginError | SuccessfullyLogged | Logout | InvalidLogin | Refresh;

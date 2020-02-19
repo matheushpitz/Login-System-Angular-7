@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  serverHost: 'http://localhost:62081'
+  serverHost: 'http://localhost:62081',
+  tokenReAuthenticateTime: 60,
 };
 
 /*

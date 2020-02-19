@@ -19,7 +19,7 @@ export class LoginComponent {
 
   constructor(private router: Router, private store: Store<any>, private effect: LoginEffects,
               private facade: LoginFacade) {
-    this.login$ = store.pipe(select('login'));
+    this.login$ = store.pipe(select('login'));    
     
     this.subs.push(this.effect.ofType(ActionTypes.SuccessfullyLogged).subscribe(() => {                  
       this.router.navigate(['home']);

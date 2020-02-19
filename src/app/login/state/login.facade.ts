@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { LoginService } from '../login.service';
 import { UserAuthentication } from '../login.model';
 import { Store } from '@ngrx/store';
-import { Login, Logout } from './login.actions';
+import { Login, Logout, Refresh } from './login.actions';
 
 @Injectable({
     providedIn: 'root'
@@ -19,5 +19,9 @@ export class LoginFacade {
 
     logout() {
         this.store.dispatch(new Logout());
+    }
+
+    refresh() {
+        this.store.dispatch(new Refresh());
     }
 }

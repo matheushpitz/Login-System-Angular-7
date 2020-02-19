@@ -8,12 +8,10 @@ import { Router } from '@angular/router';
 })
 export class DefaultComponent {
 
-  constructor(private loginFacade: LoginFacade,
-              private router: Router) {}  
+  constructor(private loginFacade: LoginFacade) {}  
 
   logout() {
-    this.loginFacade.logout();
-    this.router.navigate(['login']);
+    this.loginFacade.logout();    
   }
 
 }
